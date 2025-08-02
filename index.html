@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Roblox Key Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #181818;
+      color: #fff;
+      text-align: center;
+      padding: 50px;
+    }
+    .container {
+      background: #282828;
+      border-radius: 12px;
+      padding: 20px;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    #key {
+      font-size: 1.5em;
+      margin: 20px 0;
+      word-break: break-all;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      background-color: #00b894;
+      color: #fff;
+      cursor: pointer;
+      margin: 10px;
+    }
+    button:hover {
+      background-color: #019875;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🔐 Roblox Key Generator</h1>
+    <div id="key">Press "Generate" to get a key</div>
+    <button onclick="generateKey()">Generate Key</button>
+    <button onclick="copyKey()">Copy</button>
+  </div>
+
+  <script>
+    function generateKey(length = 32) {
+      const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      let key = "";
+      for (let i = 0; i < length; i++) {
+        key += charset.charAt(Math.floor(Math.random() * charset.length));
+      }
+      document.getElementById("key").textContent = key;
+    }
+
+    function copyKey() {
+      const key = document.getElementById("key").textContent;
+      navigator.clipboard.writeText(key).then(() => {
+        alert("Key copied to clipboard!");
+      });
+    }
+  </script>
+
+</body>
+</html>
